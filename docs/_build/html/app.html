@@ -182,12 +182,15 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="app.chunks">
 <span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">chunks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.chunks" title="Permalink to this definition">¶</a></dt>
-<dd><p>[summary]</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>seq ([type]): [description]
-size ([type]): [description]</p>
+<dd><p>Chunks the signals based on the input
+:param seq: sequence
+:param size: net size</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>chunks of signals</p>
 </dd>
-<dt>Returns:</dt><dd><p>[type]: [description]</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -200,11 +203,16 @@ size ([type]): [description]</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.event">
 <span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.event" title="Permalink to this definition">¶</a></dt>
-<dd><p>From the prediction we predict the events associated with the signal using rule based conditions.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>preds : Predicitons from ML Model
-rr : rr interval
-hr : heart rate</p>
+<dd><p>From the prediction we predict the events associated with the signal using rule based conditions.
+:param preds: Predicitons from ML Model
+:param rr: rr interval
+:param hr: heart rate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>event class associated with label.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -213,11 +221,18 @@ hr : heart rate</p>
 <dt class="sig sig-object py" id="app.features">
 <span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sampling_frequency</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.features" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gives more attributes to the signal such as rr_interval, hr etc</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>signal : Input ECG Signal
-sampling_frequency (int): The Frequecny at which the signal is sampled</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signal</strong> – Input ECG Signal</p></li>
+<li><p><strong>sampling_frequency</strong> (<em>int</em>) – The Frequecny at which the signal is sampled</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>ecg_info: more attributes are added.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>ecg_info-more attributes are added.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -225,10 +240,15 @@ sampling_frequency (int): The Frequecny at which the signal is sampled</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.plot">
 <span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.plot" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>Args:</dt><dd><p>signal : Input ECG Signal</p>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>signal</strong> – Input ECG Signal</p>
 </dd>
-<dt>Returns:</dt><dd><p>out : Performs ecg extraction from biosspy</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>out-Performs ecg extraction from biosspy</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -236,11 +256,14 @@ sampling_frequency (int): The Frequecny at which the signal is sampled</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.prediction">
 <span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.prediction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prediction of the Signal</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>signal : Input ECG Signal</p>
+<dd><p>Prediction of the Signal
+:param signal: Input ECG Signal</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>pred1-Predictions of the ML Model.</p>
 </dd>
-<dt>Returns:</dt><dd><p>pred1  : Predictions of the ML Model.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -248,13 +271,16 @@ sampling_frequency (int): The Frequecny at which the signal is sampled</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.resample_by_interpolation">
 <span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">resample_by_interpolation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_fs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.resample_by_interpolation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resamples the SIgnal from current frequency to the requireed frequency</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>signal    : Input ECG Signal
-input_fs  : Current Frequency
-output_fs : Required Frequency</p>
+<dd><p>Resamples the SIgnal from current frequency to the requireed frequency
+:param signal: Input ECG Signal
+:param input_fs: Current Frequency
+:param output_fs: Required Frequency</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>resampled_signal-New signal with the specified frequency.</p>
 </dd>
-<dt>Returns:</dt><dd><p>resampled_signal: New signal with the specified frequency.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -263,14 +289,15 @@ output_fs : Required Frequency</p>
 <dt class="sig sig-object py" id="app.standardise">
 <span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">standardise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signal</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">adc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.standardise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Standardises the Signal to certain frequency and ADC Resolution
-Args:</p>
-<blockquote>
-<div><p>signal: Input ECG Signal
-freq  : The Required Frequency
-adc   : THe Required ADC Resolution</p>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>sig   : Standarised signal with the specified frequency and adc resolution.</p>
+:param signal: Input ECG Signal
+:param freq: The Required Frequency
+:param adc: The Required ADC Resolution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Standarised signal with the specified frequency and adc resolution.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>array</p>
 </dd>
 </dl>
 </dd></dl>
@@ -278,10 +305,14 @@ adc   : THe Required ADC Resolution</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="app.time_frequency">
 <span class="sig-prename descclassname"><span class="pre">app.</span></span><span class="sig-name descname"><span class="pre">time_frequency</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#app.time_frequency" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="simple">
-<dt>Args:</dt><dd><p>df : Dataframe</p>
+<dd><p>Calculates the time frequency
+:param df: dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>time frequecny by strippping</p>
 </dd>
-<dt>Returns:</dt><dd><p>time_freq : time frequecny by strippping</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>array</p>
 </dd>
 </dl>
 </dd></dl>
