@@ -8,9 +8,10 @@ Welcome to Reflections ECG's documentation!
 .. image:: reflections-logo.jpg
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
+   readme
    modules
 
 
