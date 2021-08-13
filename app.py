@@ -310,13 +310,9 @@ coll = db["json-config"]
 
 app.config["SECRET_KEY"] = "mySecretKey"
 
-model1 = load_model(
-    r"D:\Medicomp\documentation\Testing\ECG_Reflection-main\Noise_Classifier_360_3s.h5"
-)
+model1 = load_model(r"Noise_Classifier_360_3s.h5")
 
-model = joblib.load(
-    r"D:\Medicomp\documentation\Testing\ECG_Reflection-main\SVC_Model_5_new.pkl"
-)
+model = joblib.load(r"SVC_Model_5_new.pkl")
 
 
 class JSONUploadForm(FlaskForm):
