@@ -1,0 +1,239 @@
+<html>
+  <title>results</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <style type="text/css">
+    body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+    .container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .leftpane {
+    width: 62%;
+    height: 100%;
+    float: left;
+    background-color: #173048;
+    border-collapse: collapse;
+    background-image: url('./graphy-dark.png');
+    border-right: 1px solid white;
+  }
+
+   .rightpane {
+      width: 38%;
+      height: 100%;
+      position: relative;
+      float: right;
+      background-color: #0c2236;
+      border-collapse: collapse;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      overflow-x: hidden;
+      /* padding-top: 20px; */
+      background-image: url('./graphy-dark.png');
+  }
+  .rightpane #a > div{
+    border-bottom: 5px solid #173048;
+    overflow: hidden;
+  }
+
+   .toppane {
+   width: 100%;
+   height: 100px;
+   border-collapse: collapse;
+   background-color: #ffffff;
+  }
+
+  .thumb {
+    margin-left: -62px;
+    pointer-events: none;
+    border: none;
+    padding: 0;
+    width: 138%;
+    height: 330px;
+    margin-top: -69px !important;
+  }
+
+  .preview {
+    border:none;
+    padding: 0;
+    width: 100%;
+    height: 400px;
+  }
+  .color-note{
+    list-style: none;
+    text-align: right;
+    padding-right: 40px;
+    font-size: 12px;
+  }
+  .color-note li{
+    display: inline;
+    padding-left: 20px;
+    position: relative;
+  }
+  .color-note li::after{
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: 25%;
+    left: 5px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: black;
+  }
+  .color-note li.gray::after{ background-color: gray;}
+  .color-note li.orange::after{ background-color: orange;}
+  .color-note li.red::after{ background-color: red;}
+  .leftclass iframe{
+    margin-top: -50px;
+  }
+  .rightpane{
+    border-left: 5px solid #173048;
+  }
+  .rightpane .leftclass{
+    border-left: 1px solid #173048;
+    border-right: 1px solid #173048;
+  }
+  .rightpane .leftclass.active{
+    border-top: 1px solid white;
+  }
+  .rightpane .leftclass.active iframe{
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+  }
+  .footer-legend ul{
+    font-size: 12px;
+    margin-left: 1rem;
+  }
+  .footer-legend ul li{
+    border: none;
+    color: #AAAD0A;
+    padding-top: 0.1rem !important;
+    padding-bottom: 0.1rem !important;
+  }
+  .thumb-img{
+    width: 20%;
+    text-align: center;
+    display: block;
+    padding: 7px;
+  }
+  .thumb-img img{
+    width: 100%;
+  }
+  #graph-modal{
+    max-width: 1000px !important;
+  }
+
+  
+  </style>
+      
+    
+<body>
+ 
+  <div class="container">
+    <div class="toppane">
+      <div class="w3-top">
+        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+            <a href="#home" class="w3-bar-item w3-button"><b>Cardiology using AI</b> Reflections Demo </a>
+            <!-- Float links to the right. Hide them on small screens -->
+            <div class="w3-right w3-hide-small">
+            <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+            <a href="#about" class="w3-bar-item w3-button">About</a>
+            <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+            </div> 
+        </div>
+
+        <div class="w3-bar w3-white">
+          <ul class="color-note">
+            <li class="gray">Noise</li>
+            <li class="orange">Medium</li>
+            <li class="red">Risky</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="leftpane">  
+      <iframe src="../static/file1.html" class="preview" id="preview"></iframe>
+      <div>
+        <button type="button" onclick=window.open("http://127.0.0.1:5000/page","_self") class="btn btn-primary" style="float:right;margin-right: 50px;">Report</button>
+      </div>
+      <div id="graph-thumbs" class="w3-row">
+        
+      </div>
+      <div class="footer-legend">
+        <ul class="w3-ul">
+          <li class="w3-padding-small">N - Normal beat</li>
+          <li class="w3-padding-small">L - Left bundle branch block beat</li>
+          <li class="w3-padding-small">R - Right bundle branch block beat</li>
+          <li class="w3-padding-small">V - Premature ventricular contraction</li>
+          <li class="w3-padding-small">/ - Paced beat</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rightpane">
+      <div id="a"></div>
+  </div>
+  <div id="graph-modal" class="modal">
+    <div class="modal-body"></div>
+  </div>
+</body>
+</html>
+
+<script>
+  var count= {{count}};
+  let images = {
+    
+  };
+  for(var i = 1;i<=count;i++) {
+    var activeClass="";
+    if(i == 1) activeClass = "active";
+    document.getElementById("a").innerHTML+= '<div onclick="showPreview(this)" class="leftclass '+activeClass+'"><iframe width="200" height="150" class="thumb" src="../static/file' + i + '.html" data-file="'+i+'"/></iframe></div>'
+    /*images.push([{file:"file"}]);*/
+    images[i] = [{ "file": "file"+i+".png" }];
+    
+    console.log(images);
+  }
+  function showImages(iframe = 1){
+    $("#graph-thumbs").empty();
+    $(images[iframe] ).each(function( key, value ) {
+      $("#graph-thumbs").append('<a href="#graph-modal" class="thumb-img w3-col" data-url="../static/images/' + value.file + '" rel="modal:open"><img src="../static/images/' + value.file + '" width="100%" alt=""></a>');
+    });
+  }
+
+  function showPreview(element){
+    var allMaps = document.getElementsByClassName("leftclass");
+    for (var i = 0; i < allMaps.length; i++) {
+      allMaps[i].classList.remove("active");
+    }
+    element.classList.add("active");
+    var src = element.getElementsByTagName('iframe')[0].getAttribute("src");
+    let file = element.getElementsByTagName('iframe')[0].getAttribute("data-file");
+    document.getElementById('preview').setAttribute("src", src);
+    showImages(file);
+  }
+  $(document).on('click', '.thumb-img', function(event){ 
+    event.preventDefault();
+    this.blur(); // Manually remove focus from clicked link.
+    let imgUrl = this.getAttribute('data-url');
+    $('.modal-body').html("<img src='"+imgUrl+"' width='100%' >");
+  });
+  
+  showImages(1);
+</script>
+
+  
+
+
+

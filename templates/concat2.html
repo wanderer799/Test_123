@@ -1,0 +1,234 @@
+<html>
+  <title>results</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <style type="text/css">
+    body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  
+    .container {
+    width: 100%;
+    height: auto;
+    background-color:#173048;
+  }
+
+   .toppane {
+   width: 100%;
+   height: 100px;
+   border-collapse: collapse;
+   background-color: #ffffff;
+  }
+
+  .thumb {
+    pointer-events: none;
+    border:none;
+    padding: 0;
+    width: 100%;
+    height: 300px;
+  }
+
+  
+  .color-note{
+    list-style: none;
+    text-align: right;
+    padding-right: 40px;
+    font-size: 12px;
+  }
+  .color-note li{
+    display: inline;
+    padding-left: 20px;
+    position: relative;
+  }
+  .color-note li::after{
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: 25%;
+    left: 5px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: black;
+  }
+  .color-note li.gray::after{ background-color: gray;}
+  .color-note li.orange::after{ background-color: orange;}
+  .color-note li.red::after{ background-color: red;}
+  .leftclass iframe{
+    margin-top: -50px;
+  }
+  .footer-legend{
+	margin-top:30px;
+  }
+  
+  .footer-legend ul{
+    font-size: 12px;
+    margin-left: 1rem;
+  }
+  .footer-legend ul li{
+    border: none;
+    color: #AAAD0A;
+    padding-top: 0.1rem !important;
+    padding-bottom: 0.1rem !important;
+  }
+ 
+  .content{
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    background-color: #173048;
+    border-collapse: collapse;
+    background-image: url('./graphy-dark.png');
+    border-right: 1px solid white;
+  }
+
+  .textblock{
+    padding-left: 25px;
+    max-width: 100%;
+  }
+
+.text{
+    color: white;
+    margin-top:inherit;
+    line-height: inherit;
+    
+}
+
+iframe{
+    overflow: scroll !important;
+  }
+
+  
+.preview{
+  width: 100%;
+  height: 500px !important;
+  height: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding-bottom: 40px;
+}
+.preview iframe{
+  width: 600%;
+}
+
+.report { 
+            background-color: white; 
+            border: 2px solid black; 
+            color: #AAAD0A; 
+            padding: 2px 10px; 
+            text-align: center; 
+            display: inline-block; 
+            font-size: 20px; 
+            margin: 10px 30px; 
+            cursor: pointer; 
+            text-decoration:none; 
+            font-size: 15px;
+                margin-top: 25px;
+        } 
+
+        .ab{
+          display: inline-flex;
+          
+        }
+        
+        .in{
+        
+        margin-top:30px;
+        display:inline-flex;
+        }
+  </style>
+      
+    
+<body>
+ 
+  <div class="container">
+    <div class="toppane">
+      <div class="w3-top">
+        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+            <a href="#home" class="w3-bar-item w3-button"><b> Cardiology using AI </b> Reflections Demo </a>
+            <!-- Float links to the right. Hide them on small screens -->
+            <div class="w3-right w3-hide-small">
+            <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+            <a href="#about" class="w3-bar-item w3-button">About</a>
+            <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+            </div>
+        </div>
+        <div class="w3-bar w3-white">
+          <ul class="color-note">
+            <li class="gray">Noise</li>
+            <li class="orange">Medium</li>
+            <li class="red">Risky</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="preview">
+        <iframe src="../static/concat.html" class="preview" id="preview"></iframe>
+      </div>
+        
+      <div style="width:100%">
+          <div class="in" style="width:60%; float: left;">
+              <div style="width:45%">
+				<div class="textblock">
+					<p class="text">Beats : {{beats}}</p>
+					<p class="text">Average Heart Rate: {{hrv}}</p>
+					<p class="text">{{eventss}}</p>
+				</div>
+				 <div class="footer-legend"> 
+					<ul class="w3-ul">
+					  <li class="w3-padding-small">N - Normal beat</li>
+					  <li class="w3-padding-small">L - Left bundle branch block beat</li>
+					  <li class="w3-padding-small">R - Right bundle branch block beat</li>
+					  <li class="w3-padding-small">V - Premature ventricular contraction</li>
+					  <li class="w3-padding-small">/ - Paced beat</li>
+					</ul>
+				  </div>
+              </div>        
+              <span style="padding-left:500px width:55%;"><iframe width="470" height="280" src="../static/piechart.html"></iframe></span>
+			 
+          </div>
+          <div  style="width:40%; float: left;">    
+            <div style="float:right; margin-right:20px;">
+                <a href="../static/report.pdf" target="_blank" class="report">Report PDF</a>
+              </div>  
+          </div>      
+      </div>
+    </div>
+     
+       
+    </div> 
+</body>
+</html>
+
+<script>
+    function openPDF(th)
+            {
+                window.open(th.name,'_blank');
+            }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
