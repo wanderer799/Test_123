@@ -11,6 +11,7 @@ Welcome to Reflections ECG's documentation!
    :maxdepth: 4
    :caption: Contents:
    
+   readme   
    modules
 
 
