@@ -17,4 +17,5 @@ docxtpl==0.11.3
 docx2pdf==0.1.7
 python-docx==0.8.10
 kaleido==0.2.1
+m2r2
 
